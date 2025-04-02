@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Input</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h2>パラメータ送信</h2>
+    <form th:action="@{/post-param}" method="post">
+        ご挨拶:<input type="text" name="greeting"><br><br>
+
+        <input type="submit" value="送信" class="btn">
+    </form>
+</body>
+</html>
