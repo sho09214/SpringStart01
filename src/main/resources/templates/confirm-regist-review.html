@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>レビュー登録画面</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h2>レビュー登録確認</h2>
+
+    【店舗ID】<br>
+    <p th:text="${reviewRegistForm.resutaurantId}"></p><br><br>
+
+    【利用者ID】<br>
+    <p th:text="${reviewRegistForm.userId}"></p><br><br>
+
+    【来店日】<br>
+    <p th:text="${reviewRegistForm.visitDate}"></p><br><br>
+
+    【評価】（1-5）<br>
+    <p th:text="${reviewRegistForm.rating}"></p><br><br>
+
+    【一言コメント】<br>
+    <p th:text="${reviewRegistForm.comment}"></p><br><br>
+
+    <br>
+    <a th:href="@{/show-review-form}">入力画面に戻る</a>
+</body>
+</html>
