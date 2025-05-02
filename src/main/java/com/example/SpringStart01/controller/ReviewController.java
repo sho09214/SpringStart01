@@ -1,6 +1,10 @@
 package com.example.SpringStart01.controller;
 
 import com.example.SpringStart01.form.ReviewRegistForm;
+import com.example.SpringStart01.mock.RegistServiceMock;
+import com.example.SpringStart01.service.RegistService;
+import com.example.SpringStart01.service.RegistServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,6 +15,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class ReviewController {
+    private final RegistService service;
+
+    @Autowired
+    public ReviewController(RegistService service) {
+        this.service = service;
+    }
+
+
     /* --- レビュー登録画面 ---*/
     @GetMapping("/show-review-form")
     public String showReviewForm(@ModelAttribute ReviewRegistForm form) {
@@ -45,7 +57,11 @@ public class ReviewController {
 
         // ここでDB登録を行う
 
-        model.addAttribute("msg", "レビュー登録が完了しました。");
+//        RegistService service = new RegistServiceImpl();
+//        RegistService service = new RegistServiceMock();
+        String msg = service.regist();
+
+        model.addAttribute("msg", msg);
         return "complete-regist-review";
     }
 }
