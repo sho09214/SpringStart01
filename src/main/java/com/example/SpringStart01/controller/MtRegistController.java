@@ -18,7 +18,7 @@ public class MtRegistController {
 
     //管理メニュー店舗登録画面
     @PostMapping("/mt-show-regist")
-    public String mtShowRegist() {
+    public String mtShowRegist(@ModelAttribute MtRegistForm form) {
         return "mt-regist";
     }
 

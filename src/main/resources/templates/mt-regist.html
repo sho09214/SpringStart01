@@ -11,11 +11,11 @@
   <form th:action="@{/mt-regist}" method="post" th:object="${mtRegistForm}">
       【店舗名】<br>
       <input type="text" th:field="*{restaurantName}">
-      <div th:if="${#fields.hasErrors('restaurantName')}}" th:errors="*{restaurantName}" class="error-msg"></div>
+      <div th:if="${#fields.hasErrors('restaurantName')}" th:errors="*{restaurantName}" class="error-msg"></div>
       <br>
       【キャッチフレーズ】<br>
       <input type="text" th:field="*{catchPhrase}">
-      <div th:if="${#fields.hasErrors('catchPhrase')}}" th:errors="*{catchPhrase}" class="error-msg"></div>
+      <div th:if="${#fields.hasErrors('catchPhrase')}" th:errors="*{catchPhrase}" class="error-msg"></div>
       <br>
       <input type="submit" value="登録" class="btn">
   </form>

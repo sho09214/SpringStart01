@@ -15,7 +15,7 @@ public class MtRestaurantRepositoryImpl implements MtRestaurantRepository {
 
         //DB登録
         String sql =
-                "INSERT INTO m_rastaurant" +
+                "INSERT INTO m_restaurant" +
                 "(restaurant_name, catch_phrase)" +
                 "VALUES(?, ?)";
 
