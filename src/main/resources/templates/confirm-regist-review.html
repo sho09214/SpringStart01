@@ -7,59 +7,46 @@
 </head>
 <body>
     <h2>レビュー登録確認</h2>
-    <div th:object="${reviewRegistForm}">
-        【店舗ID】<br>
-        <p th:text="*{restaurantId}"></p>
-        <br>
-        【利用者ID】<br>
-        <p th:text="*{userId}"></p>
-        <br>
-        【来店日】<br>
-        <p th:text="*{visitDate}"></p>
-        <br>
-        【評価】（1-5）<br>
-        <p th:text="*{rating}"></p>
-        <br>
-        【一言コメント】<br>
-        <p th:text="*{comment}"></p>
-        <br>
-    </div>
+
+    <table class="confirm-table" th:object="${reviewRegistForm}">
+        <tr>
+            <td class="guide">【店舗】</td>
+            <td th:text="*{restaurantId} + ' ' + *{restaurantName}"></td>
+        </tr>
+        <tr>
+            <td class="guide">【利用者ID】</td>
+            <td th:text="*{userId}"></td>
+        </tr>
+        <tr>
+            <td class="guide">【来店日】</td>
+            <td th:text="*{visitDate}"></td>
+        </tr>
+        <tr>
+            <td class="guide">【評価】（1-5）</td>
+            <td th:text="*{rating}"></td>
+        </tr>
+        <tr>
+            <td class="guide">【一言コメント】</td>
+            <td th:text="*{comment}"></td>
+        </tr>
+    </table>
 
     <form th:action="@{confirm-regist-review}" method="post" th:object="${reviewRegistForm}">
-        【店舗ID】<br>
         <input type="hidden" th:field="*{restaurantId}">
-        <br>
-        【利用者ID】<br>
         <input type="hidden" th:field="*{userId}">
-        <br>
-        【来店日】<br>
         <input type="hidden" th:field="*{visitDate}">
-        <br>
-        【評価】（1-5）<br>
         <input type="hidden" th:field="*{rating}">
-        <br>
-        【一言コメント】<br>
         <input type="hidden" th:field="*{comment}">
-        <br>
         <input type="submit" value="登録実行" class="btn">
     </form>
 
     <form th:action="@{show-review-form-ret}" method="post" th:object="${reviewRegistForm}">
-        【店舗ID】<br>
         <input type="hidden" th:field="*{restaurantId}">
-        <br>
-        【利用者ID】<br>
+        <input type="hidden" th:field="*{restaurantName}">
         <input type="hidden" th:field="*{userId}">
-        <br>
-        【来店日】<br>
         <input type="hidden" th:field="*{visitDate}">
-        <br>
-        【評価】（1-5）<br>
         <input type="hidden" th:field="*{rating}">
-        <br>
-        【一言コメント】<br>
         <input type="hidden" th:field="*{comment}">
-        <br>
         <input type="submit" value="戻る" class="btn">
     </form>
 </body>

@@ -66,3 +66,29 @@
  .restaurant-list {
     background-color: #eee8aa;
  }
+
+ .tbtn {
+    border: 2px solid steelblue;
+    padding: 2px 10px;
+    font-size: 16px;
+    color: steelblue;
+    cursor: pointer;
+ }
+
+ .tbtn:hover {
+    color: #fff;
+    background: steelblue;
+ }
+
+ .confirm-table {
+    background-color: #e5d8e8;
+    width: 50%;
+ }
+
+ .confirm-table .guide {
+    width: 30%;
+ }
+
+ .confirm-table td {
+    text-align: left;
+ }
