@@ -1,0 +1,42 @@
+package com.example.SpringStart01.aop;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.springframework.data.relational.core.sql.Join;
+import org.springframework.stereotype.Component;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+@Aspect
+@Component
+public class LoggingAspect {
+
+    @Before("execution(* com.example.SpringStart01.service.*.*(..))")
+    public void logBefore(JoinPoint joinPoint) {
+        outputLog("メソッド開始", joinPoint);
+    }
+
+    @AfterReturning("execution(* com.example.SpringStart01.service.*.*(..))")
+    public void logAfter(JoinPoint joinPoint) {
+        outputLog("メソッド終了", joinPoint);
+    }
+
+    private void outputLog(String str, JoinPoint joinPoint) {
+        //現在時刻文字列取得
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String strNow = LocalDateTime.now().format(formatter);
+
+        //クラス名・メソッド名取得
+        String className = joinPoint.getTarget().getClass().getSimpleName();
+        String methodName = joinPoint.getSignature().getName();
+
+        //ログ表示
+        System.out.println(
+                strNow + " : " + str + " : " +
+                className + "." + methodName + "()"
+        );
+    }
+}
