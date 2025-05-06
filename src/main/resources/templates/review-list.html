@@ -22,7 +22,7 @@
                 <th>ID</th><th>ユーザ</th><th>来店日</th><th>評価</th><th>一言コメント</th>
             </tr>
 
-            <tr th:each="review : ${reviewList}}">
+            <tr th:each="review : ${reviewList}">
                 <td th:text="${review.reviewId}"></td>
                 <td th:text="${review.userId}"></td>
                 <td th:text="${review.visitDate}"></td>
@@ -33,6 +33,6 @@
     </div>
 
     <br>
-    <a th:href="@{/top]">トップページに戻る</a>
+    <a th:href="@{/top}">トップページに戻る</a>
 </body>
 </html>
