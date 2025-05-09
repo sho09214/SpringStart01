@@ -24,8 +24,8 @@
         <td>
           <form th:action="@{/mt-show-edit}" method="post">
             <input type="hidden" name="restaurantId" th:value="${restaurant.restaurantId}">
-            <input type="hidden" name="restaurantId" th:value="${restaurant.restaurantName}">
-            <input type="hidden" name="restaurantId" th:value="${restaurant.catchPhrase}">
+            <input type="hidden" name="restaurantName" th:value="${restaurant.restaurantName}">
+            <input type="hidden" name="catchPhrase" th:value="${restaurant.catchPhrase}">
             <input type="submit" value="編集" class="btn">
           </form>
         </td>

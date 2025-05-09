@@ -1,6 +1,9 @@
 package com.example.SpringStart01.controller;
 
+import com.example.SpringStart01.entity.MtRestaurant;
 import com.example.SpringStart01.form.MtEditForm;
+import com.example.SpringStart01.service.MtEditService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -9,7 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
+@RequiredArgsConstructor
 public class MtEditController {
+
+    private final MtEditService service;
 
     //店舗編集画面リクエスト
     @PostMapping("/mt-show-edit")
@@ -41,6 +47,11 @@ public class MtEditController {
         }
 
         //DB処理
+        MtRestaurant mtRestaurant = new MtRestaurant();
+        mtRestaurant.setRestaurantId(form.getRestaurantId());
+        mtRestaurant.setRestaurantName(form.getRestaurantName());
+        mtRestaurant.setCatchPhrase(form.getCatchPhrase());
+        service.edit(mtRestaurant);
 
         redirectAttributes.addFlashAttribute("mag", "（店舗更新）");
         return "redirect:/mt-complete";
