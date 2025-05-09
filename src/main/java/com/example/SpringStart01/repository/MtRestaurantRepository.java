@@ -8,4 +8,6 @@ public interface MtRestaurantRepository {
     void add(MtRestaurant r);
 
     List<MtRestaurant> selectByNameWildcard(String restaurantName);
+
+    void update(MtRestaurant mtRestaurant);
 }
