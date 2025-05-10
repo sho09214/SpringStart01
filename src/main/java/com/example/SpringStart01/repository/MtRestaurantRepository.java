@@ -10,4 +10,6 @@ public interface MtRestaurantRepository {
     List<MtRestaurant> selectByNameWildcard(String restaurantName);
 
     void update(MtRestaurant mtRestaurant);
+
+    void delete(MtRestaurant mtRestaurant);
 }

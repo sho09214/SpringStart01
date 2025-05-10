@@ -18,7 +18,7 @@
   <div th:if="${mtRestaurantList} != null">
     <table class="restaurant-list">
       <tr>
-        <th>店舗</th><th>店舗ID</th><th>店舗名</th><th>キャッチフレーズ</th><th>レビュー数</th>
+        <th colspan="2">店舗</th><th>店舗ID</th><th>店舗名</th><th>キャッチフレーズ</th><th>レビュー数</th>
       </tr>
       <tr th:each="restaurant : ${mtRestaurantList}">
         <td>
@@ -27,6 +27,14 @@
             <input type="hidden" name="restaurantName" th:value="${restaurant.restaurantName}">
             <input type="hidden" name="catchPhrase" th:value="${restaurant.catchPhrase}">
             <input type="submit" value="編集" class="btn">
+          </form>
+        </td>
+        <td>
+          <form th:action="@{/mt-remove}" method="post">
+            <input type="hidden" name="restaurantId" th:value="${restaurant.restaurantId}">
+            <input type="hidden" name="restaurantName" th:value="${restaurant.restaurantName}">
+            <input type="hidden" name="catchPhrase" th:value="${restaurant.catchPhrase}">
+            <input type="submit" value="削除" class="btn">
           </form>
         </td>
         <td th:text="${restaurant.restaurantId}"></td>
