@@ -10,4 +10,6 @@ public interface ReviewRepository {
     List<Review> selectByRestaurantId(int restaurantId);
 
     void update(Review review);
+
+    void delete(Review review);
 }
