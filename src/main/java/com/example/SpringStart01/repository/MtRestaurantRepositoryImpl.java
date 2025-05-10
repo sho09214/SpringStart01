@@ -70,4 +70,13 @@ public class MtRestaurantRepositoryImpl implements MtRestaurantRepository {
                 mtRestaurant.getRestaurantId()
         );
     }
+
+    @Override
+    public void delete(MtRestaurant mtRestaurant) {
+        String sql =
+                "DELETE FROM m_restaurant" +
+                " WHERE restaurant_id = ?" ;
+
+        jdbcTemplate.update(sql, mtRestaurant.getRestaurantId());
+    }
 }
